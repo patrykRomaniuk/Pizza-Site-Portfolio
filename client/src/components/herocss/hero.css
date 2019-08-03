@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Modak|Crimson+Text|Oxygen");
+.hero {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: -1;
+}
+
+.hero .hero-logo {
+  font-size: 3em;
+  font-family: 'Crimson Text',sans-serif;
+  text-align: center;
+}
+
+.hero .hero-logo {
+  text-align: center;
+  font-family: 'Modak',sans-serif;
+  font-size: 4em;
+  color: #f4f4f4;
+  text-shadow: 8px 5px #191919;
+}
+/*# sourceMappingURL=hero.css.map */

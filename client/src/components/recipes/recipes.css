@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Modak|Crimson+Text|Oxygen");
+.recipe {
+  width: 80vw;
+  margin: 0 auto;
+}
+
+@media (max-width: 658px) {
+  .recipe {
+    width: 100vw;
+  }
+}
+
+.recipe .recipe-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border: 1px solid #c7bebe;
+  border-radius: 5px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+@media (max-width: 768px) {
+  .recipe .recipe-item {
+    width: auto;
+  }
+}
+
+.recipe .recipe-item .first-item-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-left: 20px;
+}
+
+.recipe .recipe-item .first-item-div .item-text {
+  font-size: 1.6em;
+  font-family: 'Oxygen',sans-serif;
+}
+
+@media (max-width: 568px) {
+  .recipe .recipe-item .first-item-div .item-text {
+    font-size: 1em;
+  }
+}
+
+.recipe .recipe-item .first-item-div .name-item {
+  font-size: 1em;
+}
+
+@media (max-width: 568px) {
+  .recipe .recipe-item .first-item-div .name-item {
+    font-size: 1em;
+  }
+}
+
+.recipe .recipe-item .second-item-div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px;
+}
+
+@media (max-width: 568px) {
+  .recipe .recipe-item .second-item-div img {
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.recipe .recipe-item .second-item-div .plus {
+  position: relative;
+  top: 0%;
+  right: 0%;
+  padding: 10px 0px 0px 20px;
+  color: #c7bebe;
+  font-size: 2em;
+}
+
+.recipe .recipe-item .second-item-div .plus:hover {
+  color: #f3ebeb;
+  cursor: pointer;
+}
+
+.pizza-info-wrapper {
+  width: 100vw;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pizza-info-wrapper .pizza-info {
+  font-size: 5em;
+  font-family: 'Modak',sans-serif;
+}
+
+@media (max-width: 768px) {
+  .pizza-info-wrapper .pizza-info {
+    font-size: 3em;
+  }
+}
+/*# sourceMappingURL=recipes.css.map */

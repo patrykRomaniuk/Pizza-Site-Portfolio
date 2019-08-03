@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css?family=Modak|Crimson+Text|Oxygen");
+html {
+  scroll-behavior: smooth;
+}
+
+.nav-wrapper {
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 50% 20%;
+      grid-template-columns: 30% 50% 20%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  z-index: 1;
+}
+
+.nav-wrapper .logo {
+  font-size: 1.8em;
+  font-family: 'Modak',sans-serif;
+  text-align: center;
+  color: #191919;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper .logo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 30px;
+    font-size: 1.5em;
+  }
+}
+
+.nav-wrapper .nav-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.nav-wrapper .nav-links .nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Oxygen',sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+}
+
+.nav-wrapper .nav-links .nav-link:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper .nav-links .nav-link {
+    display: none;
+    font-size: 1.3em;
+  }
+}
+
+.nav-wrapper .basket {
+  color: #f3ebeb;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.nav-wrapper .basket .modalLength {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #258fc0;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .nav-wrapper .basket .modalLength {
+    top: 2%;
+    right: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper .basket .modalLength {
+    top: 5%;
+    right: 5%;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.nav-wrapper .basket .basket-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  z-index: 3;
+  font-size: 1.5em;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+}
+
+.nav-wrapper .basket .basket-icon:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.backToTop {
+  position: fixed;
+  bottom: 10%;
+  right: 2%;
+  font-size: 4em;
+  color: #4cb7f9;
+}
+
+.backToTop:hover {
+  cursor: pointer;
+  color: #3ba6e8;
+}
+
+@media (max-width: 768px) {
+  .backToTop {
+    font-size: 2em;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+/*# sourceMappingURL=navbar.css.map */

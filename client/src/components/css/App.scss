@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Modak|Crimson+Text|Oxygen');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow-x: hidden;
+}
+.main-image{
+    width: 100vw;
+    height: 100vh;
+    background: url('../herocss/pizza2.jpg') no-repeat center/cover;
+}
+.phone-num-wrapper{
+    width: 100vw;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .phone-num{
+        font-family: 'Oxygen',sans-serif;
+        font-size: 3em;
+        border-bottom: 1px solid black;
+        @media (max-width: 768px) {
+            font-size: 2em;
+        }
+    }
+}
