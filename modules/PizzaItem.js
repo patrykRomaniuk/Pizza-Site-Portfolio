@@ -6,7 +6,7 @@ let PizzaItem = mongoose.Schema({
         required: true
     },
     price: {
-        type: Int16Array,
+        type: String,
         required: true
     },
     image: {
@@ -14,7 +14,7 @@ let PizzaItem = mongoose.Schema({
         required: true
     },
     count: {
-        type: Int16Array,
+        type: String,
         required: true
     }
 });
