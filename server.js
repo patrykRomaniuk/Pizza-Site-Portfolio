@@ -7,6 +7,7 @@ connectDatabase();
 app.use(express.json());
 
 app.use('/api/pizzaItem',require('./routes/pizzaItem'));
+app.use('/api/users',require('./routes/users'));
 
 const PORT = process.env.PORT || 5000;
 
