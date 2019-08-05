@@ -125,6 +125,24 @@ router.get(
             return res.status(500).json({ msg: "Server Error..." });
         }
     }
+);
+
+router.delete(
+    '/:id',
+    auth,
+    async(req,res) => {
+        try {
+            let user = await User.findById(req.user.id);
+            const removeItemFromPizzas = user.pizzas
+            .filter(pizza => pizza.id !== req.params.id);
+            user.pizzas = removeItemFromPizzas;
+            await user.save();
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
 )
 
 module.exports = router;
