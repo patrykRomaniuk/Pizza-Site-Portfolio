@@ -93,16 +93,16 @@ export const PizzaRecipe = [
             {
                 id: 10,
                 name: 'Sprite',
-                price: '2.3$',
-                priceNum: 2.3,
+                price: '2$',
+                priceNum: 2,
                 img: sprite,
                 isDisabled: false    
             },
             {
                 id: 11,
                 name: 'Fanta',
-                price: '0.75$',
-                priceNum: 0.75,
+                price: '1$',
+                priceNum: 1,
                 img: fanta,
                 isDisabled: false 
             },
