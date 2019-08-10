@@ -1,24 +1,39 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import './components/css/App.css'
-import Navbar from './components/Navbar.js'
-import Hero from './components/Hero.js'
-import Recipes from './components/Recipes.js'
-import Footer from './components/Footer';
-import {ModalProvider} from './components/ModalContext'
+import setAuthToken from './utils/setAuthToken';
+import { loadUser } from './actions/auth';
+import Landing from './Landing';
+import Login from './components/Login';
+import { Provider } from 'react-redux';
+import Register from './components/Register';
+import {ModalProvider} from './components/ModalContext';
+import ModalWrapper from './ModalWrapper'
+import store from './store';
+import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
+
+if(localStorage.token){
+  setAuthToken(localStorage.token);
+}
 
 export default function App() {
+    useEffect(() => {
+      store.dispatch(loadUser());
+    },[])
   return (
-       <div className="main-image">
-        <ModalProvider>
-          <Navbar/>
-            <Hero/>
-            <div className="phone-num-wrapper">
-            <span className="phone-num">Phone Number:<br/> +48 221 564 725</span>
-            </div>
-            <Recipes/>
-          <Footer/>
-        </ModalProvider>
-       </div>
+    <Router>
+      <ModalProvider>
+        <Provider store={store}>
+          <Switch>
+            <React.Fragment>
+              <ModalWrapper />
+              <Route exact path="/" component={ Landing }/>
+              <Route exact path="/login" component={ Login }/>
+              <Route exact path="/register" component={ Register }/>
+            </React.Fragment>
+          </Switch>
+        </Provider>
+      </ModalProvider>
+    </Router>
   )
 }
 
