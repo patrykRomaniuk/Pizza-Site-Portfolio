@@ -7,8 +7,8 @@ html {
   width: 100vw;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 50% 20%;
-      grid-template-columns: 30% 50% 20%;
+  -ms-grid-columns: 30% 40% 30%;
+      grid-template-columns: 30% 40% 30%;
   position: fixed;
   top: 0%;
   left: 0%;
@@ -88,43 +88,14 @@ html {
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: center;
+          justify-content: space-around;
 }
 
-.nav-wrapper .basket .modalLength {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #258fc0;
-  position: fixed;
-  top: 5%;
-  right: 5%;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  color: #fff;
-}
-
-@media (max-width: 1024px) {
-  .nav-wrapper .basket .modalLength {
-    top: 2%;
-    right: 2%;
-  }
-}
-
-@media (max-width: 768px) {
-  .nav-wrapper .basket .modalLength {
-    top: 5%;
-    right: 5%;
-    width: 15px;
-    height: 15px;
-  }
+.nav-wrapper .basket span a {
+  color: #fefefe;
+  font-size: 1.6em;
+  text-decoration: none;
+  text-shadow: -2px 4px 2px rgba(111,88,88,0.6);
 }
 
 .nav-wrapper .basket .basket-icon {
