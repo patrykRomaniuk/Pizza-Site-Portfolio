@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const connectDatabase = require('./config/db');
 
 connectDatabase();
 
-app.use(express.json());
+app.use(cors());
 
-app.use('/api/pizzaItem',require('./routes/pizzaItem'));
+app.use(express.json({ extended: false }));
+
 app.use('/api/users',require('./routes/users'));
 app.use('/api/auth',require('./routes/auth'));
 
