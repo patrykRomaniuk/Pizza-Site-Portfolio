@@ -63,29 +63,30 @@ router.put(
     [
         check('name','Pizza name not found').not().isEmpty(),
         check('price','Price not found').not().isEmpty(),
-        check('count',"Count is required").not().isEmpty()
+        check('count',"Count is required").not().isEmpty(),
+        check('startingPrice',"StartingPrice is required").not().isEmpty()
     ],
     auth,
     async(req,res) => {
-        const { name,price,count } = req.body;
+        const { name,price,count,startingPrice } = req.body;
         let user = await User.findById(req.user.id);
         const errors = validationResult(req);
         if(!errors.isEmpty()){
             return res.status(500).json({ errors: errors.array() });
         }
         try {
-           /* let pizzaName = await Pizza.findOne({ name });
-            if(pizzaName)
+            let pizzaName = await Pizza.findOne({ name });
+            if(pizzaName){
                 return res.status(401).json({ msg: "There is pizza like that,just change the count." });
-            const pizza = new Pizza({
-                name,
-                price,
-                count
-            });*/
+            }
+            if(user.pizzas.length > 5){
+                return res.status(500).json({ msg: "Max is only 5 items" });
+            }
             const pizzaItem = {
                 pizzaName: name,
                 pizzaPrice: price,
-                pizzaCount: count
+                pizzaCount: count,
+                priceStart: startingPrice
             };
             user.pizzas.unshift(pizzaItem)
 
@@ -94,6 +95,28 @@ router.put(
         } catch (error) {
             console.log(error.message);
             return res.status(400).json({ msg: "Server Error" });
+        }
+    }
+);
+
+router.put(
+    '/add/:pizza_id/:count',
+    auth,
+    async(req,res) => {
+        try {
+            let user = await User.findById(req.user.id).select('-password');
+            let checkForID = user.pizzas
+            .find(pizza => pizza._id.toString() === req.params.pizza_id.toString()); 
+            let parseCountStringToInt = parseInt(checkForID.pizzaCount,10);
+            parseCountStringToInt = 1;
+            const actualCount = parseCountStringToInt * req.params.count;
+            checkForID.pizzaPrice = req.params.count * checkForID.priceStart;
+            checkForID.pizzaCount = actualCount;
+            await user.save();
+            res.json(user);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
         }
     }
 );
