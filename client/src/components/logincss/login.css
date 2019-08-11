@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Crimson+Text|Baloo+Bhai&display=swap');
 .login-page-wrapper{
     display: flex;
     justify-content: center;
@@ -14,20 +15,26 @@
     justify-content: center;
     align-items: center;
 }
-.login-page-wrapper .login-section .login-inputs-wrapper div{
+.login-page-wrapper .login-section header h1 {
+    font-family: 'Oswald',sans-serif;
+}
+.login-page-wrapper .login-section .login-inputs-wrapper form div{
     display: flex;
     flex-direction: column;
     margin: 1em 0;
 }
-.login-page-wrapper .login-section .login-inputs-wrapper div label{
+.login-page-wrapper .login-section .login-inputs-wrapper form div label{
     text-align: center;
     margin-bottom: .5em;
     font-family: 'Baloo Bhai',sans-serif;
 }
-.login-page-wrapper .login-section .login-inputs-wrapper div input{
+.login-page-wrapper .login-section .login-inputs-wrapper form div input{
     width: 40%;
     margin: 0 auto;
     padding: 5px;
+    font-weight: bold;
+    font-family: 'Crimson Text',sans-serif;
+    background: #fefefe;
 }
 .login-page-wrapper .login-section .login-inputs-wrapper .login-btn{
     display: flex;
@@ -52,6 +59,7 @@
 }
 .login-page-wrapper .login-section .login-inputs-wrapper form .btns-wrapper .btns a{
     text-align: center;
+    color: #111;
 }
 .login-page-wrapper .login-section .login-inputs-wrapper .login-btn:hover{
     cursor: pointer;
@@ -63,9 +71,17 @@
 }
 @media(max-width: 768px){
     .login-page-wrapper .login-section .login-inputs-wrapper div input{
-        width: 80%;
+        width: 100% !important;
     }
     .login-page-wrapper .login-section .login-inputs-wrapper .login-btn{
-        width: 80%;
+        width: 100%;
+    }
+    .login-page-wrapper .login-section .login-inputs-wrapper form .btns-wrapper .btns{
+        grid-template-columns: 1fr;
+        grid-row-gap: 1.4em;
+        width: 90vw;
+    }
+    .login-page-wrapper .login-section .login-inputs-wrapper form .btns-wrapper .btns a{
+        font-size: 1.3em;
     }
 }
