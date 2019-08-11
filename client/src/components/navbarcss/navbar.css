@@ -7,8 +7,8 @@ html {
   width: 100vw;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 40% 30%;
-      grid-template-columns: 30% 40% 30%;
+  -ms-grid-columns: 30% 50% 20%;
+      grid-template-columns: 30% 50% 20%;
   position: fixed;
   top: 0%;
   left: 0%;
@@ -19,8 +19,11 @@ html {
   font-size: 1.8em;
   font-family: 'Modak',sans-serif;
   text-align: center;
-  color: #191919;
   padding: 20px 0;
+}
+.nav-wrapper .logo a {
+  color: #191919;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -72,8 +75,14 @@ html {
 
 @media (max-width: 768px) {
   .nav-wrapper .nav-links .nav-link {
-    display: none;
+    display: none !important;
     font-size: 1.3em;
+  }
+  .nav-wrapper{
+    grid-template-columns: 50% 0% 50%;
+  }
+  .nav-wrapper .basket span{
+    margin-right: 2em;
   }
 }
 
@@ -88,7 +97,11 @@ html {
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
-          justify-content: space-around;
+          justify-content: center;
+}
+
+.nav-wrapper .basket span{
+  margin-left: .5em;
 }
 
 .nav-wrapper .basket span a {
@@ -102,7 +115,6 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: fixed;
   z-index: 3;
   font-size: 1.5em;
   -webkit-transition: -webkit-transform .5s ease-in-out;
@@ -116,7 +128,6 @@ html {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
-
 .backToTop {
   position: fixed;
   bottom: 10%;
@@ -135,6 +146,9 @@ html {
     font-size: 2em;
     bottom: 5%;
     right: 5%;
+  }
+  .nav-wrapper .basket .basket-icon {
+    display: flex !important;
   }
 }
 /*# sourceMappingURL=navbar.css.map */
