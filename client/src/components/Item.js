@@ -1,14 +1,16 @@
 import React,{useContext} from 'react'
-import {ModalContext} from './ModalContext'
+import {ModalContext} from './ModalContext';
+import { setPizza } from '../actions/auth';
 import './recipes/recipes.css'
 import './herocss/hero.css'
+import { connect } from 'react-redux';
 
-export default function Item({item}) {
+function Item({ setPizza,item, auth }) {
   const [modalItems,setModalItems] = useContext(ModalContext);
   const addToItems = (name,price,img,priceNum,id) => {
     setModalItems([...modalItems,{name,price,img,count: 1,priceNum,id}])
   }  
-  
+  const count = "1";
     let secondPizzaLoop = item.map( (item,index) => {
       return(
             <div className="recipe-item" key={index}>
@@ -29,7 +31,32 @@ export default function Item({item}) {
                       }} 
                       />
                        <i className="far fa-plus-square plus" 
-                       onClick={()=>addToItems(item.name,item.price,item.img,item.priceNum,item.id)}>
+                       onClick={()=> {
+                         const filteringForItem = auth.user.pizzas
+                         .find(pizza => pizza.pizzaName === item.name)
+                          if(filteringForItem !== undefined){
+                            return alert('There is already this item');
+                          }
+                            if(auth.user.pizzas.length >= 4){
+                              return alert('Max is 5 items');
+                            } else {
+                               if(auth.isAuthenticated || !localStorage.token){
+                                 addToItems(item.name,item.price,item.img,item.priceNum,item.id);
+       
+                                 setPizza(
+                                   item.name,
+                                   item.priceNum.toString(),
+                                   count,
+                                   item.id,
+                                   item.priceNum.toString()
+                                 );
+                                 return alert('Item added');
+                               } else {
+                                 return alert('You are not registered')
+                               }
+                             }       
+                          }
+                      }>
                        </i>
                   </div>
             </div>
@@ -41,3 +68,9 @@ export default function Item({item}) {
     </div>
   )
 }
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { setPizza })(Item);
