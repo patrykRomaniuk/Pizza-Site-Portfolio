@@ -11,7 +11,8 @@ import {
     REMOVE_MODAL,
     ADD_COUNT,
     REMOVE_PIZZA,
-    ERROR_HANDLER
+    ERROR_HANDLER,
+    SET_ALL_PIZZA_VALUES
 } from './types';
 import axios from 'axios';
 
@@ -25,6 +26,20 @@ export const loadUser = () => async dispatch => {
     } catch (error) {
         dispatch({
             type: AUTH_ERROR,
+            payload: error
+        });
+    }
+}
+
+export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
+    try {
+        dispatch({
+            type: SET_ALL_PIZZA_VALUES,
+            payload: allPizzaPrices
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR_HANDLER,
             payload: error
         });
     }
