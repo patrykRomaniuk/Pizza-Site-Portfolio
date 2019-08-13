@@ -38,7 +38,7 @@ function Item({ setPizza,item, auth }) {
                             return alert('There is already this item');
                           }
                             if(auth.user.pizzas.length >= 4){
-                              return alert('Max is 5 items');
+                              return alert('Max is 4 items');
                             } else {
                                if(auth.isAuthenticated || !localStorage.token){
                                  addToItems(item.name,item.price,item.img,item.priceNum,item.id);
@@ -50,7 +50,8 @@ function Item({ setPizza,item, auth }) {
                                    item.id,
                                    item.priceNum.toString()
                                  );
-                                 return alert('Item added');
+                                 alert('Item added');
+                                 return document.location.reload(true);
                                } else {
                                  return alert('You are not registered')
                                }
