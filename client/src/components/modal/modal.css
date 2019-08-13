@@ -16,7 +16,6 @@
           align-items: center;
   width: 100%;
   height: 100%;
-  z-index: 10;
 }
 
 .modal-wrapper::after {
@@ -88,6 +87,7 @@
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  border-radius: 10px;
   width: 50vw;
   background: #f3ebeb;
 }
@@ -118,7 +118,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -185,24 +184,12 @@
   .modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .item-count {
     font-size: 1.3em;
   }
-  .modal-wrapper .basket-modal .main-modal .item-modal form{
-    width: 20%;
-  }
-  .modal-wrapper .basket-modal .main-modal .item-modal .item-name{
-    font-size: 1em;
-  }
-  .modal-wrapper .basket-modal .main-modal .item-modal .item-price{
-    font-size: 1em !important;
-  }
-  .modal-wrapper .basket-modal .main-modal .item-modal form .count-input {
-    padding: 0 20px;
-    width: 100%;
-  }
 }
 
-.modal-wrapper .basket-modal .main-modal .item-modal form .count-input {
-  padding: 10px 10px;
-  font-size: 1.4em;
+.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .minus {
+  font-size: 1.5em;
+  -webkit-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
 }
 
 @media (max-width: 768px) {
