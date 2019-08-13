@@ -19,11 +19,8 @@ html {
   font-size: 1.8em;
   font-family: 'Modak',sans-serif;
   text-align: center;
-  padding: 20px 0;
-}
-.nav-wrapper .logo a {
   color: #191919;
-  text-decoration: none;
+  padding: 20px 0;
 }
 
 @media (max-width: 768px) {
@@ -39,6 +36,7 @@ html {
             align-items: center;
     margin-top: 30px;
     font-size: 1.5em;
+    background: #4cb7f9 !important;
   }
 }
 
@@ -75,14 +73,8 @@ html {
 
 @media (max-width: 768px) {
   .nav-wrapper .nav-links .nav-link {
-    display: none !important;
+    display: none;
     font-size: 1.3em;
-  }
-  .nav-wrapper{
-    grid-template-columns: 50% 0% 50%;
-  }
-  .nav-wrapper .basket span{
-    margin-right: 2em;
   }
 }
 
@@ -100,21 +92,47 @@ html {
           justify-content: center;
 }
 
-.nav-wrapper .basket span{
-  margin-left: .5em;
+.nav-wrapper .basket .modalLength {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #258fc0;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #fff;
 }
 
-.nav-wrapper .basket span a {
-  color: #fefefe;
-  font-size: 1.6em;
-  text-decoration: none;
-  text-shadow: -2px 4px 2px rgba(111,88,88,0.6);
+@media (max-width: 1024px) {
+  .nav-wrapper .basket .modalLength {
+    top: 2%;
+    right: 2%;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-wrapper .basket .modalLength {
+    top: 6%;
+    right: 5%;
+    width: 15px;
+    height: 15px;
+  }
 }
 
 .nav-wrapper .basket .basket-icon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: fixed;
   z-index: 3;
   font-size: 1.5em;
   -webkit-transition: -webkit-transform .5s ease-in-out;
@@ -128,6 +146,7 @@ html {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
+
 .backToTop {
   position: fixed;
   bottom: 10%;
@@ -146,9 +165,6 @@ html {
     font-size: 2em;
     bottom: 5%;
     right: 5%;
-  }
-  .nav-wrapper .basket .basket-icon {
-    display: flex !important;
   }
 }
 /*# sourceMappingURL=navbar.css.map */
