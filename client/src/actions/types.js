@@ -11,3 +11,4 @@ export const SET_MODAL = "SET_MODAL";
 export const REMOVE_MODAL = "REMOVE_MODAL";
 export const ADD_COUNT = "ADD_COUNT";
 export const ERROR_HANDLER = "ERROR_HANDLER";
+export const SET_ALL_PIZZA_VALUES = "SET_ALL_PIZZA_VALUES";
