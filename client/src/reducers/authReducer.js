@@ -7,12 +7,12 @@ import {
     AUTH_ERROR,
     LOG_OUT,
     SET_PIZZA,
-    REMOVE_PIZZA,
     ADD_COUNT,
     SUBTRACT_COUNT,
     SET_MODAL,
     REMOVE_MODAL,
-    ERROR_HANDLER
+    ERROR_HANDLER,
+    SET_ALL_PIZZA_VALUES
 } from '../actions/types';
 
 const initialState = {
@@ -22,7 +22,8 @@ const initialState = {
     user: null,
     users: [],
     errors: {},
-    modal: false
+    modal: false,
+    allPizzaPrices: 0
 };
 
 const auth = (state = initialState,action) => {
@@ -37,22 +38,29 @@ const auth = (state = initialState,action) => {
                 isAuthenticated:true,
                 loading: false
             }
-        case REGISTER_FAIL:
         case LOGIN_FAIL:
         case AUTH_ERROR:
         case LOG_OUT:
-            localStorage.removeItem('token');
-            return {
-                ...state,
-                ...payload,
-                isAuthenticated: false,
-                loading: true
-            }
+                localStorage.removeItem('token');
+                return {
+                    ...state,
+                    ...payload,
+                    isAuthenticated: false,
+                    loading: true
+                }
+        case REGISTER_FAIL:
+                alert('Invalid Credentials');
+                localStorage.removeItem('token');
+                return {
+                    ...state,
+                    ...payload,
+                    isAuthenticated: false,
+                    loading: true
+                }
         case USER_LOADED:
             localStorage.getItem('token');
             return {
                 ...state,
-                ...payload,
                 user: payload,
                 isAuthenticated: true,
                 loading: false
@@ -82,6 +90,11 @@ const auth = (state = initialState,action) => {
                 ...state,
                 ...payload,
                 errors: payload
+            }
+        case SET_ALL_PIZZA_VALUES:
+            return {
+                ...state,
+                allPizzaPrices: payload
             }
         default:
             return state;
