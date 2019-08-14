@@ -86,7 +86,11 @@ html {
     font-size: 1.3em;
   }
 }
-
+@media(max-width:1700px){
+  .nav-wrapper .basket{
+    flex-wrap: wrap;
+  }
+}
 .nav-wrapper .basket {
   color: #f3ebeb;
   text-align: center;

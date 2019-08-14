@@ -154,8 +154,10 @@
 
 .modal-wrapper .basket-modal .main-modal .item-modal .delete {
   font-size: 1.5em;
-  -webkit-transition: color .5s ease-in-out;
-  transition: color .5s ease-in-out;
+}
+.modal-wrapper .basket-modal .main-modal .item-modal .delete .deleteBtn{
+  width: 100%;
+  height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -168,7 +170,7 @@
 }
 
 .modal-wrapper .basket-modal .main-modal .item-modal .delete:hover {
-  z-index: 2;
+  z-index: 5;
   cursor: pointer;
   color: #4cb7f9;
 }
