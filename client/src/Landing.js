@@ -2,10 +2,14 @@ import React,{ useState } from 'react';
 import Hero from './components/Hero.js'
 import Recipes from './components/Recipes.js'
 import Footer from './components/Footer';
+import { connect } from 'react-redux';
 import Navbar from './components/Navbar';
 
-const Landing = () => {
+const Landing = ({ auth }) => {
   const [modal,setModal] = useState(true);
+  if(auth.token !== null && auth.user === null){
+    document.location.reload(true);
+  }
     return (
         <div className="main-image">
         <Navbar modal={modal} setModal={ setModal }/>
@@ -19,4 +23,8 @@ const Landing = () => {
     )
 }
 
-export default Landing;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Landing);
