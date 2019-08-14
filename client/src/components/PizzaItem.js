@@ -1,15 +1,22 @@
-import React,{useContext} from 'react';
-import { subtractCount,addCount,deleteItemFromPizzas } from '../actions/auth';
+import React,{useContext,useEffect} from 'react';
+import { subtractCount,addCount,deleteItemFromPizzas,setAllPizzaPrices } from '../actions/auth';
 import { connect } from 'react-redux';
 import {ModalContext} from './ModalContext';
 
-const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas }) => {
-    const [items,setItem] = useContext(ModalContext);
-    const deleteItemModal = index => {
-        items.splice(index,1);
-        const filterItems = items.filter(item => [...item])
-        setItem(filterItems);
-      }
+/** */
+const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices }) => {
+  const [items,setItem] = useContext(ModalContext);
+  const deleteItemModal = index => {
+      items.splice(index,1);
+      const filterItems = items.filter(item => [...item])
+      setItem(filterItems);
+  }    
+      const sumAllPrices = auth.user.pizzas
+      .map(item => parseInt(item.pizzaPrice,10))
+      .reduce((a,b) => a + b,0);
+      useEffect(() => {
+        setAllPizzaPrices(sumAllPrices)
+      },[sumAllPrices])
     return (
       <div className="item-modal" key={pizza._id}>
       <div>
@@ -42,13 +49,22 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas }) => {
               deleteItemFromPizzas(pizza._id);
               deleteItemModal(pizza._id);
               alert('Item deleted from modal');
-              return document.location.reload(true);
+              setTimeout(() => document.location.reload(true),1000);
             }}>
-            <i className="fas fa-times-circle deleteBtn"></i>
+                <i className="fas fa-times-circle deleteBtn"></i>
             </p>
           </div>
         </div>
     )
 }
 
-export default connect(null, { addCount,subtractCount,deleteItemFromPizzas })(PizzaItem);
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { 
+  addCount,
+  subtractCount,
+  deleteItemFromPizzas,
+  setAllPizzaPrices
+})(PizzaItem);
