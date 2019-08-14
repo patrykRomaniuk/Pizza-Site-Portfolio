@@ -9,10 +9,10 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices 
       items.splice(index,1);
       const filterItems = items.filter(item => [...item])
       setItem(filterItems);
-  }    
-      const sumAllPrices = auth.user.pizzas
-      .map(item => parseInt(item.pizzaPrice,10))
-      .reduce((a,b) => a + b,0);
+  }      
+  const sumAllPrices = auth.user.pizzas
+  .map(item => parseInt(item.pizzaPrice,10))
+  .reduce((a,b) => a + b,0);
       useEffect(() => {
         setAllPizzaPrices(sumAllPrices)
       },[sumAllPrices])
@@ -47,8 +47,8 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices 
             <p className="delete" onClick={() => {
               deleteItemFromPizzas(pizza._id);
               deleteItemModal(pizza._id);
-              alert('Item deleted from modal');
               setTimeout(() => document.location.reload(true),1000);
+              alert('Item deleted from modal');
             }}>
                 <i className="fas fa-times-circle deleteBtn"></i>
             </p>
