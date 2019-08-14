@@ -15,8 +15,12 @@ import {
     SET_ALL_PIZZA_VALUES
 } from './types';
 import axios from 'axios';
+import setAuthToken from '../utils/setAuthToken';
 
 export const loadUser = () => async dispatch => {
+    if(localStorage.token){
+        setAuthToken(localStorage.token);
+    }
     try {
         const res = await axios.get('http://localhost:5000/api/users/me');
         dispatch({
@@ -25,8 +29,7 @@ export const loadUser = () => async dispatch => {
         });
     } catch (error) {
         dispatch({
-            type: AUTH_ERROR,
-            payload: error
+            type: AUTH_ERROR
         });
     }
 }
@@ -39,8 +42,7 @@ export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
         });
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER,
-            payload: error
+            type: ERROR_HANDLER
         });
     }
 }
@@ -59,8 +61,7 @@ export const addCount = (id,count) => async dispatch => {
         });
     } catch (error) {
         dispatch({ 
-            type: ERROR_HANDLER, 
-            payload: error 
+            type: ERROR_HANDLER
         });
     }
 }
@@ -74,8 +75,7 @@ export const deleteItemFromPizzas = id => async dispatch => {
         });
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER,
-            payload: error
+            type: ERROR_HANDLER
         })
     }
 }
@@ -85,8 +85,7 @@ export const setModal = () => async dispatch => {
         dispatch({ type: SET_MODAL });
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER,
-            payload: error
+            type: ERROR_HANDLER
         });
     }
 }
@@ -96,8 +95,7 @@ export const removeModal = () => async dispatch => {
         dispatch({ type: REMOVE_MODAL });
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER,
-            payload: error
+            type: ERROR_HANDLER
         })
     }
 }
@@ -107,8 +105,7 @@ export const logOut = () => dispatch => {
         dispatch({ type: LOG_OUT });
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER,
-            payload: error
+            type: ERROR_HANDLER
         })
     }
 }
@@ -128,8 +125,7 @@ export const registerUser = ({ name,email,password }) => async dispatch => {
         });
     } catch (error) {
         dispatch({
-            type: REGISTER_FAIL,
-            payload: error
+            type: REGISTER_FAIL
         })
     }
 }
@@ -149,8 +145,7 @@ export const loginUser = ({ email,password }) => async dispatch => {
         });
     } catch (error) {
         dispatch({
-            type: LOGIN_FAIL,
-            payload: error
+            type: LOGIN_FAIL
         });
     }
 }
@@ -170,8 +165,7 @@ export const setPizza = (name,price,count,id,startingPrice) => async dispatch =>
         })
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER,
-            payload: error
+            type: ERROR_HANDLER
         });
     }
 }
