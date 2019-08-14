@@ -16,6 +16,7 @@
           align-items: center;
   width: 100%;
   height: 100%;
+  z-index: 5;
 }
 
 .modal-wrapper::after {
@@ -87,7 +88,6 @@
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border-radius: 10px;
   width: 50vw;
   background: #f3ebeb;
 }
@@ -118,6 +118,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -159,7 +160,10 @@
 
 @media (max-width: 768px) {
   .modal-wrapper .basket-modal .main-modal .item-modal .delete {
-    font-size: 1.3em;
+    font-size: 1.5em !important;
+  }
+  .modal-wrapper .basket-modal .main-modal .item-modal p{
+    font-size: 1em !important;
   }
 }
 
@@ -169,59 +173,16 @@
   color: #4cb7f9;
 }
 
-.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .item-count {
-  font-size: 1.5em;
-  padding: 0 10px;
-}
-
 @media (max-width: 768px) {
-  .modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .item-count {
+  .modal-wrapper .basket-modal .main-modal .item-modal form {
+    width: 20% !important;
+  }
+  .modal-wrapper .basket-modal .main-modal .item-modal form input{
+    padding: 5px 5px !important;
     font-size: 1.3em;
+    width: 100% !important;
   }
 }
-
-.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .minus {
-  font-size: 1.5em;
-  -webkit-transition: color .5s ease-in-out;
-  transition: color .5s ease-in-out;
-}
-
-@media (max-width: 768px) {
-  .modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .minus {
-    font-size: 1.3em;
-  }
-}
-
-.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .minus:hover {
-  z-index: 2;
-  cursor: pointer;
-  color: #4cb7f9;
-}
-
-.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .plus {
-  font-size: 1.5em;
-  -webkit-transition: color .5s ease-in-out;
-  transition: color .5s ease-in-out;
-}
-
-@media (max-width: 768px) {
-  .modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .plus {
-    font-size: 1.3em;
-  }
-}
-
-.modal-wrapper .basket-modal .main-modal .item-modal .addNumItem .plus:hover {
-  z-index: 2;
-  cursor: pointer;
-  color: #4cb7f9;
-}
-
 .modal-wrapper .basket-modal .btn-modal-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -235,7 +196,11 @@
   width: 100%;
 }
 
-.modal-wrapper .basket-modal .btn-modal-wrapper .btn-modal {
+.modal-wrapper .basket-modal .btn-modal-wrapper a {
+  width: 100%;
+}
+
+.modal-wrapper .basket-modal .btn-modal-wrapper a  .btn-modal {
   color: #fff;
   background: #222;
   width: 100%;
