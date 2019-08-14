@@ -51,7 +51,6 @@ function Item({ setPizza,item, auth }) {
                                    item.priceNum.toString()
                                  );
                                  alert('Item added');
-                                 return document.location.reload(true);
                                } else {
                                  return alert('You are not registered')
                                }
