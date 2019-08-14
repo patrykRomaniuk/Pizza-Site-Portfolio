@@ -73,6 +73,7 @@ export const deleteItemFromPizzas = id => async dispatch => {
             type: REMOVE_PIZZA,
             payload: res.data
         });
+        dispatch(loadUser());
     } catch (error) {
         dispatch({
             type: ERROR_HANDLER
@@ -164,7 +165,8 @@ export const setPizza = (name,price,count,id,startingPrice) => async dispatch =>
         dispatch({
             type: SET_PIZZA,
             payload: res.data
-        })
+        });
+        dispatch(loadUser());
     } catch (error) {
         dispatch({
             type: ERROR_HANDLER
