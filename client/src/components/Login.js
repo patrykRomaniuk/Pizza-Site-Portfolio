@@ -7,6 +7,7 @@ import { loginUser } from '../actions/auth';
 
 const Login = ({ loginUser,auth: { isAuthenticated } }) => {
     if(isAuthenticated){
+        document.location.reload(true);
         return <Redirect to="/"/>
     }
     const [ userData,setUserData ] = useState({
