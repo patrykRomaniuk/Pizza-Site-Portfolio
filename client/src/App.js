@@ -12,8 +12,8 @@ import store from './store';
 import MenuItems from './components/MenuItems';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 
-if(localStorage.token){
-  setAuthToken(localStorage.token);
+if(localStorage.getItem('token')){
+  setAuthToken(localStorage.getItem('token'));
 }
 
 export default function App() {
