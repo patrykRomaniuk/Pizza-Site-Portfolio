@@ -25,7 +25,14 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
 
   return (
     <nav className="nav-wrapper" style={{ backgroundColor: changeNavbar ? '#4cb7f9' : '' }}>
-      <div className="logo"><Link to="/">DREAM <br/> PIZZA</Link></div>
+      <div className="logo">
+        <Link to="/" 
+        style={{ color: '#000', textDecoration: 'none' }}>
+          DREAM 
+          <br/> 
+          PIZZA
+        </Link>
+      </div>
       <div className="nav-links">
         <div 
         className="nav-link" 
