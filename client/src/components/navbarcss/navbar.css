@@ -122,10 +122,6 @@ html {
     -ms-grid-columns: 40% 0% 15%;
     grid-template-columns: 40% 0% 60%;
   }
-  .nav-wrapper .basket span a{
-    font-size:  2.5em;
-    text-align: center !important;
-  }
   .nav-wrapper .nav-links .nav-link{
     display: none !important;
   }
