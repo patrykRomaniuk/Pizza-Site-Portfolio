@@ -123,6 +123,7 @@ export const registerUser = ({ name,email,password }) => async dispatch => {
             type: REGISTER_SUCCESS,
             payload: res.data 
         });
+        dispatch(loadUser());
     } catch (error) {
         dispatch({
             type: REGISTER_FAIL
@@ -143,6 +144,7 @@ export const loginUser = ({ email,password }) => async dispatch => {
             type: LOGIN_SUCCESS,
             payload: res.data
         });
+        dispatch(loadUser());
     } catch (error) {
         dispatch({
             type: LOGIN_FAIL
