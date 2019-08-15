@@ -7,7 +7,6 @@ import { loginUser } from '../actions/auth';
 
 const Login = ({ loginUser,auth: { isAuthenticated } }) => {
     if(isAuthenticated){
-        document.location.reload(true);
         return <Redirect to="/"/>
     }
     const [ userData,setUserData ] = useState({
@@ -69,37 +68,7 @@ const Login = ({ loginUser,auth: { isAuthenticated } }) => {
     </div>
     )
 }
-/** <div>
-            <form onSubmit={e => onSubmit(e)}>
-                <input
-                type="email"
-                name="email"
-                value={ email }
-                onChange={e => onChange(e)}
-                />
-                <input
-                type="password"
-                name="password"
-                value={ password }
-                onChange={e => onChange(e)}
-                />
-                <button type="submit" onSubmit={e => onSubmit(e)}>
-                    <span>Login</span>
-                </button>
-            </form>
 
-            <button>
-                <Link to="/register">
-                    Register
-                </Link>
-            </button>
-            <br/>
-            <button>
-                <Link to="/">
-                    Main Page
-                </Link>
-            </button>
-        </div> */
 const mapStateToProps = state => ({
     auth: state.auth
 });
