@@ -14,7 +14,9 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices 
   .map(item => parseInt(item.pizzaPrice,10))
   .reduce((a,b) => a + b,0);
       useEffect(() => {
-        setAllPizzaPrices(sumAllPrices)
+        if(auth.user.pizzas !== null){
+          setAllPizzaPrices(sumAllPrices)
+        } else setAllPizzaPrices(0);
       },[sumAllPrices])
     return (
       <div className="item-modal" key={pizza._id}>
