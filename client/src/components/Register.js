@@ -22,7 +22,7 @@ const Register = ({ registerUser,auth: { isAuthenticated } }) => {
         if(password !== secondPassword){
             return alert(`Passwords don't match`)
         } else {
-            registerUser({ name,email,password });
+            registerUser(name,email,password);
         }
     }
     

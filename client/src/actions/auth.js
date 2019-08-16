@@ -111,7 +111,7 @@ export const logOut = () => dispatch => {
     }
 }
 
-export const registerUser = ({ name,email,password }) => async dispatch => {
+export const registerUser = (name,email,password) => async dispatch => {
     try {
         const config = {
             headers: {
