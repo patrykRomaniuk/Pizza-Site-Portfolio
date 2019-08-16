@@ -4,11 +4,11 @@ html {
 }
 
 .nav-wrapper {
-  width: 100vw;
+  width: 100vw !important;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 30% 50% 15%;
-      grid-template-columns: 30% 50% 15%;
+  -ms-grid-columns: 30% 50% 20%;
+      grid-template-columns: 30% 50% 20%;
   position: fixed;
   top: 0%;
   left: 0%;
@@ -86,11 +86,6 @@ html {
     font-size: 1.3em;
   }
 }
-@media(max-width:1700px){
-  .nav-wrapper .basket{
-    flex-wrap: wrap;
-  }
-}
 .nav-wrapper .basket {
   color: #f3ebeb;
   text-align: center;
@@ -106,6 +101,7 @@ html {
 }
 .nav-wrapper .basket span{
   margin: 0 1.5em;
+  font-size: 1em !important;
 }
 .nav-wrapper .basket span a{
   text-decoration: none;
