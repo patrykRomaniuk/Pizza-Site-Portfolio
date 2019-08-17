@@ -12,7 +12,8 @@ import {
     SET_MODAL,
     REMOVE_MODAL,
     ERROR_HANDLER,
-    SET_ALL_PIZZA_VALUES
+    SET_ALL_PIZZA_VALUES,
+    REMOVE_PIZZA
 } from '../actions/types';
 
 const initialState = {
@@ -68,6 +69,7 @@ const auth = (state = initialState,action) => {
         case SET_PIZZA:
         case ADD_COUNT:
         case SUBTRACT_COUNT:
+        case REMOVE_PIZZA:
             return {
                 ...state,
                 ...payload,
@@ -94,6 +96,7 @@ const auth = (state = initialState,action) => {
         case SET_ALL_PIZZA_VALUES:
             return {
                 ...state,
+                ...payload,
                 allPizzaPrices: payload
             }
         default:

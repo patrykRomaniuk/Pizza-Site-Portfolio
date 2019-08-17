@@ -14,9 +14,7 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices 
   .map(item => parseInt(item.pizzaPrice,10))
   .reduce((a,b) => a + b,0);
       useEffect(() => {
-        if(auth.user.pizzas !== null){
           setAllPizzaPrices(sumAllPrices)
-        } else setAllPizzaPrices(0);
       },[sumAllPrices])
     return (
       <div className="item-modal" key={pizza._id}>
@@ -49,7 +47,6 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices 
             <p className="delete" onClick={() => {
               deleteItemFromPizzas(pizza._id);
               deleteItemModal(pizza._id);
-              setTimeout(() => document.location.reload(true),1000);
               alert('Item deleted from modal');
             }}>
                 <i className="fas fa-times-circle deleteBtn"></i>

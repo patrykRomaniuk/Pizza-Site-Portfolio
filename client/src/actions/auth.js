@@ -17,6 +17,19 @@ import {
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 
+export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
+    try {
+        dispatch({
+            type: SET_ALL_PIZZA_VALUES,
+            payload: allPizzaPrices
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR_HANDLER
+        });
+    }
+}
+
 export const loadUser = () => async dispatch => {
     if(localStorage.token){
         setAuthToken(localStorage.token);
@@ -30,19 +43,6 @@ export const loadUser = () => async dispatch => {
     } catch (error) {
         dispatch({
             type: AUTH_ERROR
-        });
-    }
-}
-
-export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
-    try {
-        dispatch({
-            type: SET_ALL_PIZZA_VALUES,
-            payload: allPizzaPrices
-        });
-    } catch (error) {
-        dispatch({
-            type: ERROR_HANDLER
         });
     }
 }
@@ -67,6 +67,7 @@ export const addCount = (id,count) => async dispatch => {
 }
 
 export const deleteItemFromPizzas = id => async dispatch => {
+    dispatch(loadUser());
     try {
         const res = await axios.delete(`http://localhost:5000/api/users/${id}`);
         dispatch({

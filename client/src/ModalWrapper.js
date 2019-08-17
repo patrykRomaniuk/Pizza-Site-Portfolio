@@ -4,7 +4,7 @@ import { removeModal } from './actions/auth';
 import Modal from './components/Modal';
 import { connect } from 'react-redux';
 
-const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices } }) => {
+const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices,user } }) => {
     return (
         <div className="modal-wrapper" style={{ display: modal === true ? 'flex' : 'none'}}>
         <div className="modal-header">
@@ -21,10 +21,10 @@ const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices } }) => {
         <div className="btn-modal-wrapper">
         <Link to="/buy-items" onClick={() => {
           removeModal();
-        }}>
-          <button className="btn-modal">
-            Buy { allPizzaPrices }$
-          </button>
+        }}> 
+              <button className="btn-modal">
+                Buy { allPizzaPrices }$
+              </button>
           </Link>
         </div>
       </div>
