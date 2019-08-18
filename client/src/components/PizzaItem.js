@@ -1,21 +1,18 @@
 import React,{useContext,useEffect} from 'react';
-import { subtractCount,addCount,deleteItemFromPizzas,setAllPizzaPrices } from '../actions/auth';
+import { subtractCount,addCount,deleteItemFromPizzas,sumAllPrices } from '../actions/auth';
 import { connect } from 'react-redux';
 import {ModalContext} from './ModalContext';
 
-const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,setAllPizzaPrices }) => {
+const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) => {
   const [items,setItem] = useContext(ModalContext);
   const deleteItemModal = index => {
       items.splice(index,1);
       const filterItems = items.filter(item => [...item])
       setItem(filterItems);
   }      
-  const sumAllPrices = auth.user.pizzas
-  .map(item => parseInt(item.pizzaPrice,10))
-  .reduce((a,b) => a + b,0);
       useEffect(() => {
-          setAllPizzaPrices(sumAllPrices)
-      },[sumAllPrices])
+        sumAllPrices();
+      },[])
     return (
       <div className="item-modal" key={pizza._id}>
       <div>
@@ -64,5 +61,5 @@ export default connect(mapStateToProps, {
   addCount,
   subtractCount,
   deleteItemFromPizzas,
-  setAllPizzaPrices
+  sumAllPrices
 })(PizzaItem);
