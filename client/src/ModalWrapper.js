@@ -23,7 +23,7 @@ const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices,user } }) => {
           removeModal();
         }}> 
               <button className="btn-modal">
-                Buy
+                Buy { allPizzaPrices }$
               </button>
           </Link>
         </div>
