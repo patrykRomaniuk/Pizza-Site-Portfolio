@@ -103,7 +103,7 @@ router.post("/checkout", async (req, res) => {
     }
   
     res.json({ error, status });
-  });
+});
 
 router.put(
     '/',
@@ -196,6 +196,23 @@ router.get(
         }
     }
 );
+
+router.get(
+    '/sum_prices',
+    auth,
+    async(req,res) => {
+        try {
+            let user = await User.findById(req.user.id);
+            const sumAllPizzas = user.pizzas
+            .map(pizza => parseInt(pizza.pizzaPrice,10))
+            .reduce((a,b) => a + b,0);
+            res.json(sumAllPizzas);
+        } catch (error) {
+            console.log(error.message);
+            return res.status(500).json({ msg: "Server Error..." });
+        }
+    }
+)
 
 router.delete(
     '/:id',
