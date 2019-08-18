@@ -17,11 +17,25 @@ import {
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 
-export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
+/*export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
     try {
         dispatch({
             type: SET_ALL_PIZZA_VALUES,
             payload: allPizzaPrices
+        });
+    } catch (error) {
+        dispatch({
+            type: ERROR_HANDLER
+        });
+    }
+}*/
+
+export const sumAllPrices = () => async dispatch => {
+    try {
+        const res = await axios.get('http://localhost:5000/api/users/sum_prices');
+        dispatch({
+            type: SET_ALL_PIZZA_VALUES,
+            payload: res.data
         });
     } catch (error) {
         dispatch({
@@ -59,6 +73,7 @@ export const addCount = (id,count) => async dispatch => {
             type: ADD_COUNT,
             payload: res.data
         });
+        dispatch(sumAllPrices());
     } catch (error) {
         dispatch({ 
             type: ERROR_HANDLER
@@ -75,6 +90,7 @@ export const deleteItemFromPizzas = id => async dispatch => {
             payload: res.data
         });
         dispatch(loadUser());
+        dispatch(sumAllPrices());
     } catch (error) {
         dispatch({
             type: ERROR_HANDLER
@@ -168,6 +184,7 @@ export const setPizza = (name,price,count,id,startingPrice) => async dispatch =>
             payload: res.data
         });
         dispatch(loadUser());
+        dispatch(sumAllPrices());
     } catch (error) {
         dispatch({
             type: ERROR_HANDLER
