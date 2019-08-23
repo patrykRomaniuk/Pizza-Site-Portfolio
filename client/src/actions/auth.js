@@ -19,7 +19,7 @@ import setAuthToken from '../utils/setAuthToken';
 
 export const sumAllPrices = () => async dispatch => {
     try {
-        const res = await axios.get('http://localhost:5000/api/users/sum_prices');
+        const res = await axios.get('https://pure-stream-89053.herokuapp.com/api/users/sum_prices');
         dispatch({
             type: SET_ALL_PIZZA_VALUES,
             payload: res.data
@@ -36,7 +36,7 @@ export const loadUser = () => async dispatch => {
         setAuthToken(localStorage.token);
     }
     try {
-        const res = await axios.get('http://localhost:5000/api/users/me');
+        const res = await axios.get('https://pure-stream-89053.herokuapp.com/api/users/me');
         dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -55,7 +55,7 @@ export const addCount = (id,count) => async dispatch => {
                 'Content-Type': 'application/json'
             }
         };
-        const res = await axios.put(`http://localhost:5000/api/users/add/${id}/${count}`,config);
+        const res = await axios.put(`https://pure-stream-89053.herokuapp.com/api/users/add/${id}/${count}`,config);
         dispatch({
             type: ADD_COUNT,
             payload: res.data
@@ -71,7 +71,7 @@ export const addCount = (id,count) => async dispatch => {
 export const deleteItemFromPizzas = id => async dispatch => {
     dispatch(loadUser());
     try {
-        const res = await axios.delete(`http://localhost:5000/api/users/${id}`);
+        const res = await axios.delete(`https://pure-stream-89053.herokuapp.com/api/users/${id}`);
         dispatch({
             type: REMOVE_PIZZA,
             payload: res.data
@@ -144,7 +144,7 @@ export const loginUser = ({ email,password }) => async dispatch => {
             }
         };
         const body = JSON.stringify({ email,password });
-        const res = await axios.post('http://localhost:5000/api/auth',body,config);
+        const res = await axios.post('https://pure-stream-89053.herokuapp.com/api/auth',body,config);
         dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data
@@ -165,7 +165,7 @@ export const setPizza = (name,price,count,id,startingPrice) => async dispatch =>
             }
         };
         const body = JSON.stringify({ name,price,count,id,startingPrice });
-        const res = await axios.put('http://localhost:5000/api/users',body,config);
+        const res = await axios.put('https://pure-stream-89053.herokuapp.com/api/users',body,config);
         dispatch({
             type: SET_PIZZA,
             payload: res.data
