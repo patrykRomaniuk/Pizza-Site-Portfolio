@@ -23,7 +23,7 @@
     width: 80vw;
     margin: 0 auto;
     height: 90vh;
-    /*background: #33043c;*/
+    margin-top: 7em;
 }
 .main-section-sign-in .info{
     display: flex;
@@ -83,5 +83,5 @@
     .inputs-wrapper input{
         width: 15vw !important;
     }
-    
+
 }

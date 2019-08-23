@@ -70,6 +70,9 @@
     font-size: 1.5em;
 }
 @media(max-width: 768px){
+    .login-page-wrapper .login-section{
+        margin-top: 14em;
+    }
     .login-page-wrapper .login-section .login-inputs-wrapper div input{
         width: 100% !important;
     }
