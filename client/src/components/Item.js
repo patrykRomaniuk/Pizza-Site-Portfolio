@@ -48,10 +48,10 @@ function Item({ setPizza,item, auth }) {
        
                                  setPizza(
                                    item.name,
-                                   item.priceNum.toString(),
+                                   item.priceNum,
                                    count,
                                    item.id,
-                                   item.priceNum.toString()
+                                   item.priceNum
                                  );
                                  alert('Item added');
                                }                     
