@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { connect } from 'react-redux';
 import './navbarcss/navbar.css';
 import { logOut } from '../actions/auth';
@@ -6,13 +6,25 @@ import { Link } from 'react-router-dom';
 import { setModal } from '../actions/auth';
 
 function Navbar({ logOut,setModal,auth,modal,login,register }) {
+  const [changeNavbar,setChangeNavbar] = useState(false);
+
+  let scrollNavbar = () => {
+    let scrollNumber = document.documentElement.scrollTop;
+    if(scrollNumber === 0) setChangeNavbar(false);
+    else setChangeNavbar(true);
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll',scrollNavbar);
+  },[])
+
   const arrowTop = () => window.scrollTo(0,0);
   const scrollToDrinks = () => window.scrollTo(0,3200);
   const scrollToPizza = () => window.scrollTo(0,1100);
   const scrollToSauces = () => window.scrollTo(0,2100);
 
   return (
-    <nav className="nav-wrapper" style={{ backgroundColor: '#4cb7f9' }}>
+    <nav className="nav-wrapper" style={{ backgroundColor: changeNavbar ? '#4cb7f9' : '' }}>
       <div className="logo">
         <Link to="/" 
         style={{ color: '#000', textDecoration: 'none' }}>
@@ -28,7 +40,9 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
         style={{ 
           display: login === "login" || register === "register"
           ? 'none' : 'flex',
-          color: 'rgb(243, 235, 235)' }}>
+          color: changeNavbar ? 
+          'rgb(243, 235, 235)' 
+          : '#4cb7f9' }}>
           Pizza
         </div>
 
@@ -38,7 +52,9 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
         style={{ 
           display: login === "login" || register === "register"
           ? 'none' : 'flex',
-          color:'rgb(243, 235, 235)'
+          color: changeNavbar ? 
+          'rgb(243, 235, 235)' 
+          : '#4cb7f9' 
         }}>
           Drinks
         </div>
@@ -48,7 +64,9 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
         style={{ 
           display: login === "login" || register === "register"
           ? 'none' : 'flex',
-          color: 'rgb(243, 235, 235)'  }}>
+          color: changeNavbar ? 
+          'rgb(243, 235, 235)' 
+        : '#4cb7f9' }}>
             Sauces
         </div>
       
