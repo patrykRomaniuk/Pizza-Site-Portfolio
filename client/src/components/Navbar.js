@@ -24,7 +24,7 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
   const scrollToSauces = () => window.scrollTo(0,2100);
 
   return (
-    <nav className="nav-wrapper" style={{ backgroundColor: changeNavbar ? '#4cb7f9' : '' }}>
+    <nav className="nav-wrapper" style={{ backgroundColor: '#4cb7f9' }}>
       <div className="logo">
         <Link to="/" 
         style={{ color: '#000', textDecoration: 'none' }}>
@@ -40,9 +40,7 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
         style={{ 
           display: login === "login" || register === "register"
           ? 'none' : 'flex',
-          color: changeNavbar ? 
-          'rgb(243, 235, 235)' 
-          : '#4cb7f9' }}>
+          color: 'rgb(243, 235, 235)' }}>
           Pizza
         </div>
 
@@ -52,9 +50,7 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
         style={{ 
           display: login === "login" || register === "register"
           ? 'none' : 'flex',
-          color: changeNavbar ? 
-          'rgb(243, 235, 235)' 
-          : '#4cb7f9' 
+          color: 'rgb(243, 235, 235)'
         }}>
           Drinks
         </div>
@@ -64,9 +60,7 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
         style={{ 
           display: login === "login" || register === "register"
           ? 'none' : 'flex',
-          color: changeNavbar ? 
-          'rgb(243, 235, 235)' 
-        : '#4cb7f9' }}>
+          color: 'rgb(243, 235, 235)' }}>
             Sauces
         </div>
       
