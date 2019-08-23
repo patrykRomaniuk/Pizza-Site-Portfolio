@@ -41,10 +41,10 @@
 }
 @media(max-width: 1024px){
     .menu-item-wrapper .price-info .main-price{
-        font-size: 3em !important;
+        font-size: 2.5em !important;
     }
     .menu-item-wrapper .price-info .under-price{
-        font-size: 2em !important;
+        font-size: 1.5em !important;
         text-align: center;
     }
 }
