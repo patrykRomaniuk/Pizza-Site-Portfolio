@@ -17,19 +17,6 @@ import {
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 
-/*export const setAllPizzaPrices = allPizzaPrices => async dispatch => {
-    try {
-        dispatch({
-            type: SET_ALL_PIZZA_VALUES,
-            payload: allPizzaPrices
-        });
-    } catch (error) {
-        dispatch({
-            type: ERROR_HANDLER
-        });
-    }
-}*/
-
 export const sumAllPrices = () => async dispatch => {
     try {
         const res = await axios.get('http://localhost:5000/api/users/sum_prices');
@@ -136,7 +123,7 @@ export const registerUser = (name,email,password) => async dispatch => {
             }
         };
         const body = JSON.stringify({ name,email,password });
-        const res = await axios.post('http://localhost:5000/api/users',body,config);
+        const res = await axios.post('https://pure-stream-89053.herokuapp.com/api/users',body,config);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data 
