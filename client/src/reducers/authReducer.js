@@ -44,10 +44,13 @@ const auth = (state = initialState,action) => {
         case LOG_OUT:
                 localStorage.removeItem('token');
                 return {
-                    ...state,
-                    ...payload,
                     isAuthenticated: false,
-                    loading: true
+                    loading: true,
+                    user: null,
+                    users: [],
+                    errors: {},
+                    modal: false,
+                    allPizzaPrices: 0
                 }
         case REGISTER_FAIL:
                 alert('Invalid Credentials');
