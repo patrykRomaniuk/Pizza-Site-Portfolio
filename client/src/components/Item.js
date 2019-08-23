@@ -32,6 +32,9 @@ function Item({ setPizza,item, auth }) {
                       />
                        <i className="far fa-plus-square plus" 
                        onClick={()=> {
+                         if(!auth.isAuthenticated){
+                            return alert('You are not registered')
+                         }
                          const filteringForItem = auth.user.pizzas
                          .find(pizza => pizza.pizzaName === item.name)
                           if(filteringForItem !== undefined){
@@ -51,9 +54,7 @@ function Item({ setPizza,item, auth }) {
                                    item.priceNum.toString()
                                  );
                                  alert('Item added');
-                               } else {
-                                 return alert('You are not registered')
-                               }
+                               }                     
                              }       
                           }
                       }>
