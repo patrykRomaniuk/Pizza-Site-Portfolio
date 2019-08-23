@@ -20,15 +20,15 @@ let User = mongoose.Schema({
                 required: true
             },
             pizzaPrice: {
-                type: String,
+                type: Number,
                 required: true
             },
             pizzaCount: {
-                type: String,
+                type: Number,
                 required: true
             },
             priceStart: {
-                type: String,
+                type: Number,
                 required: true
             }
         }
