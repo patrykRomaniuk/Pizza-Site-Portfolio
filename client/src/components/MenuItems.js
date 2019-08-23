@@ -9,6 +9,11 @@ toast.configure();
 
 const MenuItems = ({ allPizzaPrices,auth }) => {
   if(!auth.isAuthenticated || auth.user.pizzas === []){
+    alert('You are not registered');
+    return <Redirect to="/"/>
+  }
+  if(allPizzaPrices <= 0){
+    alert("You can't buy");
     return <Redirect to="/"/>
   }
     return (
