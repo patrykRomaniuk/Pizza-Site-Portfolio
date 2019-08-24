@@ -3,6 +3,19 @@ import { subtractCount,addCount,deleteItemFromPizzas,sumAllPrices } from '../act
 import { connect } from 'react-redux';
 import {ModalContext} from './ModalContext';
 
+/** <input 
+         type="number" 
+         className="count-input"
+         onChange={e => {
+           if(e.target.value < 1){
+             e.target.value = 1;
+             return alert("You can't subtract");
+           } else {
+            addCount(pizza._id,e.target.value);
+           }
+         }} 
+         value={ parseInt(pizza.pizzaCount,10) }/> */
+
 const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) => {
   const [items,setItem] = useContext(ModalContext);
   const deleteItemModal = index => {
@@ -20,19 +33,24 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) =>
           {pizza.pizzaName}
         </p>
           </div>
-      <form>
-          <input 
-         type="number" 
-         className="count-input"
-         onChange={e => {
-           if(e.target.value < 1){
-             e.target.value = 1;
-             return alert("You can't subtract");
-           } else {
-            addCount(pizza._id,e.target.value);
-           }
-         }} 
-         value={ parseInt(pizza.pizzaCount,10) }/>
+      <form style={{ display: 'flex' }}>
+          <p 
+          style={{ fontSize: '1.5em',margin: '.5em' }}
+          onClick={() => {
+            const pizzaCountToInt =  parseInt(pizza.pizzaCount,10);
+            if(pizzaCountToInt <= 1){
+              return alert("You can't subtract");
+            } else {
+              addCount(pizza._id,pizzaCountToInt - 1);
+            }
+          }}>-</p>
+          <p style={{ fontSize: '1.5em',margin: '.5em' }}>{ pizza.pizzaCount }</p>
+          <p 
+          style={{ fontSize: '1.5em',margin: '.5em' }}
+          onClick={() => {
+            const pizzaCountToInt =  parseInt(pizza.pizzaCount,10)
+            addCount(pizza._id,pizzaCountToInt + 1);
+          }}>+</p>
       </form>
           <div>
             <p className="item-price">

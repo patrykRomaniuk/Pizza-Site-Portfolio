@@ -61,6 +61,7 @@ export const addCount = (id,count) => async dispatch => {
             payload: res.data
         });
         dispatch(sumAllPrices());
+        dispatch(loadUser());
     } catch (error) {
         dispatch({ 
             type: ERROR_HANDLER
