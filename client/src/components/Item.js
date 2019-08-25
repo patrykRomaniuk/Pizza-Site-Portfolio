@@ -10,7 +10,7 @@ function Item({ setPizza,item, auth }) {
   const addToItems = (name,price,img,priceNum,id) => {
     setModalItems([...modalItems,{name,price,img,count: 1,priceNum,id}])
   }  
-  const count = "1";
+  const count = 1;
     let secondPizzaLoop = item.map( (item,index) => {
       return(
             <div className="recipe-item" key={index}>
