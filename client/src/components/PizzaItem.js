@@ -34,8 +34,9 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) =>
         </p>
           </div>
       <form style={{ display: 'flex' }}>
-          <p 
-          style={{ fontSize: '1.5em',margin: '.5em' }}
+
+          <i 
+          className="fas fa-minus-square count"
           onClick={() => {
             const pizzaCountToInt =  parseInt(pizza.pizzaCount,10);
             if(pizzaCountToInt <= 1){
@@ -43,14 +44,20 @@ const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) =>
             } else {
               addCount(pizza._id,pizzaCountToInt - 1);
             }
-          }}>-</p>
-          <p style={{ fontSize: '1.5em',margin: '.5em' }}>{ pizza.pizzaCount }</p>
-          <p 
-          style={{ fontSize: '1.5em',margin: '.5em' }}
+          }}></i>
+
+          <p className="deleteBtn item-name"
+         style={{
+            fontSize: '1.5em',
+            margin: '.5em'
+         }}>{ pizza.pizzaCount }</p>
+
+          <i className="fas fa-plus-square count"
           onClick={() => {
             const pizzaCountToInt =  parseInt(pizza.pizzaCount,10)
             addCount(pizza._id,pizzaCountToInt + 1);
-          }}>+</p>
+          }}></i>
+
       </form>
           <div>
             <p className="item-price">
