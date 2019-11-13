@@ -15,7 +15,7 @@ const Landing = () => {
           </div>
           <Recipes/>
         <Footer/>
-    </div>
+      </div>
     )
 }
 

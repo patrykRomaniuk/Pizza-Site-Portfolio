@@ -6,25 +6,19 @@ import { Link } from 'react-router-dom';
 import { setModal } from '../actions/auth';
 
 function Navbar({ logOut,setModal,auth,modal,login,register }) {
-  const [changeNavbar,setChangeNavbar] = useState(false);
+  let [scrollNumber,setScrollNumber] = useState('');
 
   let scrollNavbar = () => {
-    let scrollNumber = document.documentElement.scrollTop;
-    if(scrollNumber === 0) setChangeNavbar(false);
-    else setChangeNavbar(true);
+    let scrollTopNumber = window.pageYOffset;
+    scrollNumber = scrollTopNumber;
   }
 
   useEffect(() => {
     document.addEventListener('scroll',scrollNavbar);
-  },[])
-
-  const arrowTop = () => window.scrollTo(0,0);
-  const scrollToDrinks = () => window.scrollTo(0,3200);
-  const scrollToPizza = () => window.scrollTo(0,1100);
-  const scrollToSauces = () => window.scrollTo(0,2100);
+  },[]);
 
   return (
-    <nav className="nav-wrapper" style={{ backgroundColor: '#4cb7f9' }}>
+    <nav className="nav-wrapper">
       <div className="logo">
         <Link to="/" 
         style={{ color: '#000', textDecoration: 'none' }}>
@@ -33,38 +27,7 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
           PIZZA
         </Link>
       </div>
-      <div className="nav-links">
-        <div 
-        className="nav-link" 
-        onClick={scrollToPizza} 
-        style={{ 
-          display: login === "login" || register === "register"
-          ? 'none' : 'flex',
-          color: 'rgb(243, 235, 235)' }}>
-          Pizza
-        </div>
-
-        <div 
-        className="nav-link" 
-        onClick={scrollToDrinks} 
-        style={{ 
-          display: login === "login" || register === "register"
-          ? 'none' : 'flex',
-          color: 'rgb(243, 235, 235)'
-        }}>
-          Drinks
-        </div>
-        <div 
-        className="nav-link"
-        onClick={scrollToSauces} 
-        style={{ 
-          display: login === "login" || register === "register"
-          ? 'none' : 'flex',
-          color: 'rgb(243, 235, 235)' }}>
-            Sauces
-        </div>
-      
-      </div>
+      <div></div>
       <div className="basket">
         <i className="fas fa-shopping-cart basket-icon" 
         style={{
@@ -95,9 +58,6 @@ function Navbar({ logOut,setModal,auth,modal,login,register }) {
             Log Out
           </Link>
         </span>
-      </div>
-      <div className="backToTop" onClick={arrowTop} style={{ display: changeNavbar ? 'block' : 'none'}}>
-      <i className="fas fa-chevron-circle-up"></i>
       </div>
     </nav>
   )

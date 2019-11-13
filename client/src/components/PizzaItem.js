@@ -3,19 +3,6 @@ import { subtractCount,addCount,deleteItemFromPizzas,sumAllPrices } from '../act
 import { connect } from 'react-redux';
 import {ModalContext} from './ModalContext';
 
-/** <input 
-         type="number" 
-         className="count-input"
-         onChange={e => {
-           if(e.target.value < 1){
-             e.target.value = 1;
-             return alert("You can't subtract");
-           } else {
-            addCount(pizza._id,e.target.value);
-           }
-         }} 
-         value={ parseInt(pizza.pizzaCount,10) }/> */
-
 const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) => {
   const [items,setItem] = useContext(ModalContext);
   const deleteItemModal = index => {
