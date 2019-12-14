@@ -5,9 +5,7 @@ import { logOut } from '../actions/auth';
 import { Link } from 'react-router-dom';
 import { setModal } from '../actions/auth';
 
-function Navbar({ logOut,setModal,auth,modal,login,register }) {
-  let [scrollNumber,setScrollNumber] = useState('');
-
+function Navbar({ logOut,setModal,auth,login,register }) {
   let scrollNavbar = () => {
     let scrollTopNumber = window.pageYOffset;
     scrollNumber = scrollTopNumber;

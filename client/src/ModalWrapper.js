@@ -4,7 +4,7 @@ import { removeModal } from './actions/auth';
 import Modal from './components/Modal';
 import { connect } from 'react-redux';
 
-const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices,user } }) => {
+const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices } }) => {
     return (
         <div className="modal-wrapper" style={{ display: modal === true ? 'flex' : 'none'}}>
         <div className="modal-header">

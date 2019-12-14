@@ -3,7 +3,7 @@ import { subtractCount,addCount,deleteItemFromPizzas,sumAllPrices } from '../act
 import { connect } from 'react-redux';
 import {ModalContext} from './ModalContext';
 
-const PizzaItem = ({ pizza,auth,addCount,deleteItemFromPizzas,sumAllPrices }) => {
+const PizzaItem = ({ pizza,addCount,deleteItemFromPizzas,sumAllPrices }) => {
   const [items,setItem] = useContext(ModalContext);
   const deleteItemModal = index => {
       items.splice(index,1);
