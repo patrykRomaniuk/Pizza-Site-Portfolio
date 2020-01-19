@@ -9,7 +9,6 @@ import Register from './components/Register';
 import {ModalProvider} from './components/ModalContext';
 import ModalWrapper from './ModalWrapper'
 import store from './store';
-import MenuItems from './components/MenuItems';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 
 if(localStorage.getItem('token')){
@@ -29,7 +28,6 @@ export default function App() {
               <ModalWrapper />
               <Route exact path="/" component={ Landing }/>
               <Route exact path="/login" component={ Login }/>
-              <Route exact path="/buy-items" component={ MenuItems }/>
               <Route exact path="/register" component={ Register }/>
             </React.Fragment>
           </Switch>
