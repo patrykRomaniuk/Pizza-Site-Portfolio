@@ -166,8 +166,7 @@ export const setPizza = (name,price,count,id,startingPrice,sku) => async dispatc
             }
         };
         const body = JSON.stringify({ name,price,count,id,startingPrice,sku });
-        console.log(`body: ${body}`);
-        const res = await axios.put(/*'https://pure-stream-89053.herokuapp.com/api/users'*/'http://localhost:5000/api/users',body,config);
+        const res = await axios.put('https://pure-stream-89053.herokuapp.com/api/users',body,config);
         dispatch({
             type: SET_PIZZA,
             payload: res.data
