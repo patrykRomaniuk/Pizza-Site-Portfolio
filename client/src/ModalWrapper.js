@@ -5,29 +5,12 @@ import { connect } from 'react-redux';
 
 const ModalWrapper = ({ removeModal,loadUser,modal,auth: { allPizzaPrices, user }, stripeToken = "pk_test_elTAJLmc7MrVyq0HbMo8SRog00jr18CTIy" }) => {
   
-  let [stripe,setStripe] = useState(null);
+  let [ stripe,setStripe ] = useState(null);
 
   useEffect(() => {
-    loadUser();
     if(window.Stripe) setStripe(window.Stripe(stripeToken));
+    loadUser();
   },[]);
-
-  const sendDataToStripe = () => {
-    stripe.redirectToCheckout({
-      items: user.pizzas(item => ({
-        sku: item.sku,
-        quantity: item.pizzaCount
-      })),
-      successUrl: 'http://localhost:3000/',
-      cancelUrl: 'http://localhost:3000/',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  }
   
   return (
         <div className="modal-wrapper" style={{ display: modal === true ? 'flex' : 'none'}}>
@@ -43,7 +26,24 @@ const ModalWrapper = ({ removeModal,loadUser,modal,auth: { allPizzaPrices, user 
           <Modal/>
         </div>
         <div className="btn-modal-wrapper">
-            <button className="btn-modal" onClick={() => sendDataToStripe()}>
+        <button
+        className="btn-modal"
+            onClick={() => {
+                stripe.redirectToCheckout({
+                    items: user.pizzas.map(item => ({
+                      sku: item.sku,
+                      quantity: item.pizzaCount  
+                    })),
+                    successUrl: 'http://localhost:3000/?alert="success/"',
+                    cancelUrl: 'http://localhost:3000/',
+                  })
+                  .then(function (result) {
+                    if (result.error) {
+                      var displayError = document.getElementById('error-message');
+                      displayError.textContent = result.error.message;
+                    }
+                  });
+            }}>
               Buy { allPizzaPrices }$
             </button>
         </div>
