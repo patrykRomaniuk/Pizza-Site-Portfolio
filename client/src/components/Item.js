@@ -7,8 +7,8 @@ import { connect } from 'react-redux';
 
 function Item({ setPizza,item, auth }) {
   const [modalItems,setModalItems] = useContext(ModalContext);
-  const addToItems = (name,price,img,priceNum,id) => {
-    setModalItems([...modalItems,{name,price,img,count: 1,priceNum,id}])
+  const addToItems = (name,price,img,priceNum,id,sku) => {
+    setModalItems([...modalItems,{name,price,img,count: 1,priceNum,id,sku}])
   }  
   const count = 1;
     let secondPizzaLoop = item.map( (item,index) => {
@@ -44,14 +44,15 @@ function Item({ setPizza,item, auth }) {
                               return alert('Max is 4 items');
                             } else {
                                if(auth.isAuthenticated || !localStorage.token){
-                                 addToItems(item.name,item.price,item.img,item.priceNum,item.id);
+                                 addToItems(item.name,item.price,item.img,item.priceNum,item.id,item.sku);
        
                                  setPizza(
                                    item.name,
                                    item.priceNum,
                                    count,
                                    item.id,
-                                   item.priceNum
+                                   item.priceNum,
+                                   item.sku
                                  );
                                  alert('Item added');
                                }                     

@@ -158,15 +158,16 @@ export const loginUser = ({ email,password }) => async dispatch => {
     }
 }
 
-export const setPizza = (name,price,count,id,startingPrice) => async dispatch => {
+export const setPizza = (name,price,count,id,startingPrice,sku) => async dispatch => {
     try {
         const config = {
             headers: {
                 'Content-Type': 'application/json' 
             }
         };
-        const body = JSON.stringify({ name,price,count,id,startingPrice });
-        const res = await axios.put('https://pure-stream-89053.herokuapp.com/api/users',body,config);
+        const body = JSON.stringify({ name,price,count,id,startingPrice,sku });
+        console.log(`body: ${body}`);
+        const res = await axios.put(/*'https://pure-stream-89053.herokuapp.com/api/users'*/'http://localhost:5000/api/users',body,config);
         dispatch({
             type: SET_PIZZA,
             payload: res.data
@@ -175,7 +176,8 @@ export const setPizza = (name,price,count,id,startingPrice) => async dispatch =>
         dispatch(sumAllPrices());
     } catch (error) {
         dispatch({
-            type: ERROR_HANDLER
+            type: ERROR_HANDLER,
+            payload: error
         });
     }
 }

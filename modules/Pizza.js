@@ -5,6 +5,10 @@ let Pizza = mongoose.Schema({
         type: String,
         required: true
     },
+    sku: {
+        type: String,
+        required: true
+    },
     price: {
         type: String,
         required: true
@@ -13,10 +17,6 @@ let Pizza = mongoose.Schema({
         type: String,
         required: true
     },
-    sku: {
-        type: String,
-        required: true
-    }
 });
 
 module.exports = Pizza = mongoose.model('pizzaItem',Pizza);

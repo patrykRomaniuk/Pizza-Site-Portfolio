@@ -30,6 +30,10 @@ let User = mongoose.Schema({
             priceStart: {
                 type: Number,
                 required: true
+            },
+            sku: {
+                type: String,
+                required: true
             }
         }
     ]

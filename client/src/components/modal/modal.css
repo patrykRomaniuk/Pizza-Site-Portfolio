@@ -215,18 +215,18 @@
   width: 100%;
 }
 
-.modal-wrapper .basket-modal .btn-modal-wrapper a {
+.modal-wrapper .basket-modal .btn-modal-wrapper button {
   width: 100%;
 }
 
-.modal-wrapper .basket-modal .btn-modal-wrapper a  .btn-modal {
+.modal-wrapper .basket-modal .btn-modal-wrapper .btn-modal {
   color: #fff;
   background: #222;
   width: 100%;
   height: 4.5vh;
 }
 @media(max-width: 768px){
-  .modal-wrapper .basket-modal .btn-modal-wrapper a  .btn-modal{
+  .modal-wrapper .basket-modal .btn-modal-wrapper .btn-modal{
     height: 7vh;
   }
 }
