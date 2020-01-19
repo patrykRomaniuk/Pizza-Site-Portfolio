@@ -19,13 +19,9 @@ const ModalWrapper = ({ removeModal,modal,auth: { allPizzaPrices } }) => {
           <Modal/>
         </div>
         <div className="btn-modal-wrapper">
-        <Link to="/buy-items" onClick={() => {
-          removeModal();
-        }}> 
-              <button className="btn-modal">
-                Buy { allPizzaPrices }$
-              </button>
-          </Link>
+            <button className="btn-modal">
+              Buy { allPizzaPrices }$
+            </button>
         </div>
       </div>
       </div>
