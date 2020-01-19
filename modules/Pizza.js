@@ -12,6 +12,10 @@ let Pizza = mongoose.Schema({
     count: {
         type: String,
         required: true
+    },
+    sku: {
+        type: String,
+        required: true
     }
 });
 
