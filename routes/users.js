@@ -111,11 +111,12 @@ router.put(
         check('name','Pizza name not found').not().isEmpty(),
         check('price','Price not found').not().isEmpty(),
         check('count',"Count is required").not().isEmpty(),
-        check('startingPrice',"StartingPrice is required").not().isEmpty()
+        check('startingPrice',"StartingPrice is required").not().isEmpty(),
+        check('sku',"Sku is required").not().isEmpty(),
     ],
     auth,
     async(req,res) => {
-        const { name,price,count,startingPrice } = req.body;
+        const { name,price,count,startingPrice,sku } = req.body;
         let user = await User.findById(req.user.id);
         const errors = validationResult(req);
         if(!errors.isEmpty()){
@@ -133,7 +134,8 @@ router.put(
                 pizzaName: name,
                 pizzaPrice: price,
                 pizzaCount: count,
-                priceStart: startingPrice
+                priceStart: startingPrice,
+                sku
             };
             user.pizzas.unshift(pizzaItem)
 
