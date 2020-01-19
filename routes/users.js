@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../modules/User');
 const bcryptjs = require('bcryptjs');
-const Pizza = require('../modules/Pizza');
+const Pizza = require('../modules/User');
 const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 const config = require('config')
@@ -81,7 +81,7 @@ router.put(
                 return res.status(401).json({ msg: "There is pizza like that,just change the count." });
             }
             if(user.pizzas.length > 5){
-                return res.status(500).json({ msg: "Max is only 5 items" });
+                return res.status(500).json({ msg: "Max is only 4 items" });
             }
             const pizzaItem = {
                 pizzaName: name,
