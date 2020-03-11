@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import './modal/modal.css'
 import PizzaItem from './PizzaItem';
 import { removeModal } from '../actions/auth';
+
+//Looping through the "pizzas" and passing the data to PizzaItem component (also checking the value)
+
 const Modal = ({ auth }) => 
   auth.isAuthenticated && 
   auth.user !== null && 
