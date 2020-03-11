@@ -6,6 +6,7 @@ import Navbar from './Navbar';
 import { loginUser } from '../actions/auth';
 
 const Login = ({ loginUser,auth: { isAuthenticated } }) => {
+    //Checking if user is logged in
     if(isAuthenticated){
         return <Redirect to="/"/>
     }
