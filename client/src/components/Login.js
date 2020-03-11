@@ -10,17 +10,22 @@ const Login = ({ loginUser,auth: { isAuthenticated } }) => {
     if(isAuthenticated){
         return <Redirect to="/"/>
     }
+
+    //Initializing userData
     const [ userData,setUserData ] = useState({
         email: '',
         password: ''
     });
 
+    //Destructuring userData
     const { email,password } = userData;
 
+    //Changing the value of userData
     const onChange = e => setUserData({ ...userData,[e.target.name]: e.target.value });
 
     const onSubmit = e => {
         e.preventDefault();
+        //Login user function
         loginUser({ email,password });
     }
 
